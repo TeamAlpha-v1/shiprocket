@@ -36,8 +36,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >-
           mvn -B sonar:sonar
-          -Dsonar.projectKey=REPLACE_WITH_SONAR_PROJECT_KEY
-          -Dsonar.organization=REPLACE_WITH_SONAR_ORGANIZATION
+          -Dsonar.projectKey=TeamAlpha-v1_shiprocket
+          -Dsonar.organization=teamalpha-v1
 
       # Optional Codecov upload.
       # - name: Upload coverage to Codecov
