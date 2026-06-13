@@ -20,6 +20,7 @@
         <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <jacoco.version>0.8.12</jacoco.version>
         <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
+        <bytebuddy.version>1.14.19</bytebuddy.version>
     </properties>
 
     <dependencies>
@@ -32,6 +33,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>${bytebuddy.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+            <version>${bytebuddy.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
