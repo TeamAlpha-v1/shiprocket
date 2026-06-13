@@ -10,22 +10,22 @@ public class CalculatorController {
     private CalculatorService calculatorService;
 
     @GetMapping("/add")
-    public int add(@RequestParam int a, @RequestParam int b) {
+    public int add(@RequestParam("a") int a, @RequestParam("b") int b) {
         return calculatorService.add(a, b);
     }
 
     @GetMapping("/subtract")
-    public int subtract(@RequestParam int a, @RequestParam int b) {
+    public int subtract(@RequestParam("a") int a, @RequestParam("b") int b) {
         return calculatorService.subtract(a, b);
     }
 
     @GetMapping("/multiply")
-    public int multiply(@RequestParam int a, @RequestParam int b) {
+    public int multiply(@RequestParam("a") int a, @RequestParam("b") int b) {
         return calculatorService.multiply(a, b);
     }
 
     @GetMapping("/divide")
-    public double divide(@RequestParam int a, @RequestParam int b) {
+    public double divide(@RequestParam("a") int a, @RequestParam("b") int b) {
         return calculatorService.divide(a, b);
     }
 
@@ -50,7 +50,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/redirect")
-    public void redirect(@RequestParam String url, jakarta.servlet.http.HttpServletResponse response) throws java.io.IOException {
+    public void redirect(@RequestParam("url") String url, jakarta.servlet.http.HttpServletResponse response) throws java.io.IOException {
         // Medium severity: Open redirect
         response.sendRedirect(url);
     }
@@ -62,13 +62,13 @@ public class CalculatorController {
     }
 
     @GetMapping("/env")
-    public String getEnv(@RequestParam String name) {
+    public String getEnv(@RequestParam("name") String name) {
         // High severity: Expose environment variable
         return System.getenv(name);
     }
 
     @GetMapping("/error")
-    public String errorLeak(@RequestParam int a) {
+    public String errorLeak(@RequestParam("a") int a) {
         // Medium severity: Leak stack trace
         try {
             int b = 10 / a;
@@ -86,7 +86,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/greet")
-    public String greet(@RequestParam String greeting) throws Exception {
+    public String greet(@RequestParam("greeting") String greeting) throws Exception {
         // Insecure logging (info disclosure)
         System.out.println("Greeting received: " + greeting);
         // Remote code execution
