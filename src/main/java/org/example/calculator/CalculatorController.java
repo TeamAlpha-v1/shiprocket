@@ -50,7 +50,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/redirect")
-    public void redirect(@RequestParam String url, javax.servlet.http.HttpServletResponse response) throws java.io.IOException {
+    public void redirect(@RequestParam String url, jakarta.servlet.http.HttpServletResponse response) throws java.io.IOException {
         // Medium severity: Open redirect
         response.sendRedirect(url);
     }
@@ -99,16 +99,5 @@ public class CalculatorController {
         System.setProperty("GREETING", greeting);
         // Direct reflection (potential XSS)
         return greeting + " hello";
-    }
-}
-package org.example.calculator;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class CalculatorApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(CalculatorApplication.class, args);
     }
 }
