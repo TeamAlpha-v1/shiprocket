@@ -111,4 +111,20 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>ci-java21</id>
+            <activation>
+                <property>
+                    <name>env.GITHUB_ACTIONS</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <properties>
+                <maven.compiler.source>21</maven.compiler.source>
+                <maven.compiler.target>21</maven.compiler.target>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
