@@ -28,7 +28,7 @@ jobs:
           cache: maven
 
       - name: Build and test
-        run: mvn -B clean verify
+        run: mvn -U -B clean verify
 
       - name: SonarCloud scan
         env:
